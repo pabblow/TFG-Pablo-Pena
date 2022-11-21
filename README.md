@@ -29,4 +29,4 @@ Se ruega a los alumnos y tutores que detecten fallos o que quieran proponer una 
 Esta plantilla está basada en la creada para el grado de Informática https://github.com/ubutfgm/plantillaLatex
 
 Gracias entre otros a César Ignacio García Osorio, Álvar Arnaiz Gonzalez, José Francisco Díez Pastor, Carlos Lopez Nozal.
-Álvaro López Cantero, Roberto Izquierdo Amo, David Miguel Lozano, Daniel Puente Ramírez.
+Álvaro López Cantero, Roberto Izquierdo Amo, David Miguel Lozano, Daniel Puente Ramírez. Samuel Lozano Juárez
