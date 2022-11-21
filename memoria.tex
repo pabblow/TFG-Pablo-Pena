@@ -33,6 +33,11 @@
 \widowpenalty100000
 \clubpenalty100000
 
+\let\tmp\oddsidemargin
+\let\oddsidemargin\evensidemargin
+\let\evensidemargin\tmp
+\reversemarginpar
+
 % Imágenes
 
 % Comando para insertar una imagen en un lugar concreto.
@@ -83,6 +88,7 @@
 \renewcommand*\cftappendixname{\appendixname\ }
 
 % Formato de portada
+
 \makeatletter
 \usepackage{xcolor}
 \newcommand{\tutor}[1]{\def\@tutor{#1}}
@@ -94,30 +100,40 @@
   \null
   \thispagestyle{empty}
   % Cabecera ----------------
-\noindent\includegraphics[width=\textwidth]{cabeceraSalud}\vspace{1cm}%
-  \vfill
-  % Título proyecto y escudo informática ----------------
-  \colorbox{cpardoBox}{%
-    \begin{minipage}{.8\textwidth}
-      \vspace{.5cm}\Large
-      \begin{center}
-      \textbf{TFG del Grado en Ingeniería de la Salud}\vspace{.6cm}\\
-      \textbf{\LARGE\@title{}}
-      \end{center}
-      \vspace{.2cm}
+\begin{center}
+  \noindent\includegraphics[width=\textwidth]{cabeceraSalud}\vspace{1.5cm}%
+\end{center}
+  
+  % Título proyecto y escudo salud ----------------
+  \begin{center}
+    \begin{minipage}[c][1.5cm][c]{.20\textwidth}
+        \includegraphics[width=\textwidth]{escudoSalud.pdf}
     \end{minipage}
-
-  }%
-  \hfill\begin{minipage}{.20\textwidth}
-    \includegraphics[width=\textwidth]{escudoSalud.pdf}
-  \end{minipage}
-  \vfill
+  \end{center}
+  
+  \begin{center}
+    \colorbox{cpardoBox}{%
+        \begin{minipage}{.8\textwidth}
+          \vspace{.5cm}\Large
+          \begin{center}
+          \textbf{TFG del Grado en Ingeniería de la Salud}\vspace{.6cm}\\
+          \textbf{\LARGE\@title{}}
+          \end{center}
+          \vspace{.2cm}
+        \end{minipage}
+    }%
+  \end{center}
+  
     % Datos de alumno, curso y tutores ------------------
   \begin{center}%
   {%
     \noindent\LARGE
     Presentado por \@author{}\\ 
-    en Universidad de Burgos --- \@date{}\\
+    en Universidad de Burgos\\
+    \vspace{0.5cm}
+    \noindent\Large
+    \@date{}\\
+    \vspace{0.5cm}
     %Tutor: \@tutor{}\\ % comenta el que no corresponda
     Tutores: \@tutor{} -- \@tutorb{}\\
   }%
@@ -127,17 +143,18 @@
   }
 \makeatother
 
-\newcommand{\nombre}{Pepe Perez}
-\newcommand{\nombreTutor}{Ramon Ramirez} 
-\newcommand{\nombreTutorb}{Sancho Sanchez} 
-\newcommand{\dni}{12345678A} 
+\newcommand{\nombre}{Pepe Pérez}
+\newcommand{\nombreTutor}{Tutor 1} 
+\newcommand{\nombreTutorb}{Tutor 2} 
+\newcommand{\dni}{123456A} 
 
 % Datos de portada
-\title{Título del Trabajo Final de Grado de Ingeniería de la Salud}
+\title{Título del trabajo}
 \author{\nombre}
 \tutor{\nombreTutor}
 \tutorb{\nombreTutorb}
 \date{\today}
+
 
 \begin{document}
 
@@ -146,18 +163,17 @@
 
 \newpage\null\thispagestyle{empty}\newpage
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \thispagestyle{empty}
 
 
 \noindent\includegraphics[width=\textwidth]{cabeceraSalud}\vspace{1cm}
 
-\noindent D. \nombreTutor, profesor del departamento de nombre departamento, área de nombre área.
+\noindent D. \nombreTutor, profesor del departamento de departamento, área de área.
 
 \noindent Expone:
 
-\noindent Que el alumno D. \nombre, con DNI \dni, ha realizado el Trabajo final de Grado en Ingeniería Informática titulado título de TFG. 
+\noindent Que el alumno D. \nombre, con DNI \dni, ha realizado el Trabajo final de Grado en Ingeniería de la Salud titulado título del trabajo. 
 
 \noindent Y que dicho trabajo ha sido realizado por el alumno bajo la dirección del que suscribe, en virtud de lo cual se autoriza su presentación y defensa.
 
@@ -236,17 +252,6 @@ keywords separated by commas.
 \listoftables
 \clearpage
 
-% Introducción.
-%    Conceptos teóricos básicos.
-%    Estado del arte y trabajos relacionados.
-%Metodología.
-%    Descripción de los datos.
-%    Técnicas y herramientas.
-%Conclusiones
-%    Resumen de resultados.
-%    Discusión.
-%    Aspectos relevantes.
-%Líneas de trabajo futura.
 
 \mainmatter
 \include{./tex/1_objetivos}
