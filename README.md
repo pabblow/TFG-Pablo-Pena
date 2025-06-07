@@ -1,9 +1,5 @@
-# Gemelo digital UCI
-# Trabajo de Fin de Grado – Integración de sensores ambientales en un modelo BIM hospitalario
-
-Este repositorio contiene el código, recursos y documentación asociados al Trabajo de Fin de Grado presentado en la Universidad de Burgos, titulado:
-
-**"Gemelo Digital UCI"**
+# Trabajo de Fin de Grado – Gemelo digital UCI
+Este repositorio contiene el código, recursos y documentación asociados al Trabajo de Fin de Grado presentado.
 
 ---
 
