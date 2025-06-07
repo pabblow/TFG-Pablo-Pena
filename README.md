@@ -3,10 +3,12 @@ Este repositorio contiene el código, recursos y documentación asociados al Tra
 
 ---
 
-## Descripción general
+## Descripción general  
+
 
 El objetivo del proyecto es desarrollar una prueba de concepto de un sistema de visualización de datos ambientales (temperatura y humedad) dentro de un modelo BIM, representado en Autodesk Revit. Para ello, se ha utilizado Dynamo como herramienta de conexión con una base de datos MySQL, donde se almacenan valores simulados.
 También se desarrolla una propuesta sobre cómo se puede implementar un gemelo digital en un entorno hospitalario real.
+
 ---
 
 ## Herramientas utilizadas
