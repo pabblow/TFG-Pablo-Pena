@@ -33,6 +33,6 @@ Cada issue contiene una breve descripción de la tarea realizada, la fecha y su 
 ## Autor
 
 **Pablo Peña María**  
-Tutor: Telmo Miguel Medina
+Tutor: Telmo Miguel Medina  
 Grado en Ingeniería de la Salud – Universidad de Burgos  
 Curso 2024–2025
