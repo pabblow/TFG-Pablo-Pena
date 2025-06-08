@@ -1,4 +1,4 @@
-<image src="/img/cabeceraSalud.jpg"  width="900">
+<image src="/img/cabeceraSalud.pdf"  width="900">
 
 # Trabajo de Fin de Grado – Gemelo digital UCI
 Este repositorio contiene el código, recursos y documentación asociados al Trabajo de Fin de Grado presentado.
