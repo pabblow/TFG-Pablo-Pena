@@ -1,0 +1,303 @@
+\documentclass[a4paper,12pt,twoside]{memoir}
+
+% Castellano
+\usepackage[spanish,es-tabla]{babel}
+\selectlanguage{spanish}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} % Scalable font
+\usepackage{microtype}
+\usepackage{placeins}
+\usepackage{float}
+\usepackage{amssymb}
+
+\RequirePackage{booktabs}
+\RequirePackage[table]{xcolor}
+\RequirePackage{xtab}
+\RequirePackage{multirow}
+
+% Links
+\PassOptionsToPackage{hyphens}{url}\usepackage[colorlinks]{hyperref}
+\hypersetup{
+	allcolors = {red}
+}
+
+% Ecuaciones
+\usepackage{amsmath}
+
+% Rutas de fichero / paquete
+\newcommand{\ruta}[1]{{\sffamily #1}}
+
+% Párrafos
+\nonzeroparskip
+
+% Huérfanas y viudas
+\widowpenalty100000
+\clubpenalty100000
+
+\let\tmp\oddsidemargin
+\let\oddsidemargin\evensidemargin
+\let\evensidemargin\tmp
+\reversemarginpar
+
+% Imágenes
+
+% Comando para insertar una imagen en un lugar concreto.
+% Los parámetros son:
+% 1 --> Ruta absoluta/relativa de la figura
+% 2 --> Texto a pie de figura
+% 3 --> Tamaño en tanto por uno relativo al ancho de página
+\usepackage{graphicx}
+
+\newcommand{\imagen}[3]{
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=#3\textwidth]{#1}
+		\caption{#2}\label{fig:#1}
+	\end{figure}
+	\FloatBarrier
+}
+
+
+
+
+
+
+
+\graphicspath{ {./img/} }
+
+% Capítulos
+\chapterstyle{bianchi}
+\newcommand{\capitulo}[2]{
+	\setcounter{chapter}{#1}
+	\setcounter{section}{0}
+	\setcounter{figure}{0}
+	\setcounter{table}{0}
+	\chapter*{#2}
+	\addcontentsline{toc}{chapter}{#2}
+	\markboth{#2}{#2}
+}
+
+% Apéndices
+\renewcommand{\appendixname}{Apéndice}
+\renewcommand*\cftappendixname{\appendixname}
+
+\newcommand{\apendice}[1]{
+	%\renewcommand{\thechapter}{A}
+	\chapter{#1}
+}
+
+\renewcommand*\cftappendixname{\appendixname\ }
+
+% Formato de portada
+
+\makeatletter
+\usepackage{xcolor}
+\newcommand{\tutor}[1]{\def\@tutor{#1}}
+\newcommand{\tutorb}[1]{\def\@tutorb{#1}}
+
+\newcommand{\course}[1]{\def\@course{#1}}
+\definecolor{cpardoBox}{HTML}{E6E6FF}
+\def\maketitle{
+  \null
+  \thispagestyle{empty}
+  % Cabecera ----------------
+\begin{center}
+  \noindent\includegraphics[width=\textwidth]{cabeceraSalud}\vspace{1.5cm}%
+\end{center}
+  
+  % Título proyecto y escudo salud ----------------
+  \begin{center}
+    \begin{minipage}[c][1.5cm][c]{.20\textwidth}
+        \includegraphics[width=\textwidth]{tfg/img/escudoSalud.pdf}
+    \end{minipage}
+  \end{center}
+  
+  \begin{center}
+    \colorbox{cpardoBox}{%
+        \begin{minipage}{.8\textwidth}
+          \vspace{.5cm}\Large
+          \begin{center}
+          \textbf{TFG del Grado en Ingeniería de la Salud}\vspace{.6cm}\\
+          \textbf{\LARGE\@title{}}
+          \end{center}
+          \vspace{.2cm}
+        \end{minipage}
+    }%
+  \end{center}
+  
+    % Datos de alumno, curso y tutores ------------------
+  \begin{center}%
+  {%
+    \noindent\LARGE
+    Presentado por \@author{}\\ 
+    en Universidad de Burgos\\
+    \vspace{0.5cm}
+    \noindent\Large
+    \@date{}\\
+    \vspace{0.5cm}
+    Tutor: \@tutor{}\\ % comenta el que no corresponda
+    %Tutores: \@tutor{}\\
+  }%
+  \end{center}%
+  \null
+  \cleardoublepage
+  }
+\makeatother
+
+\newcommand{\nombre}{Pablo Peña María}
+\newcommand{\nombreTutor}{Telmo Miguel Medina} 
+\newcommand{\nombreTutorb}{Tutor 2} 
+\newcommand{\dni}{71309751E} 
+
+% Datos de portada
+\title{Gemelo digital UCI}
+\author{\nombre}
+\tutor{\nombreTutor}
+%\tutorb{\nombreTutorb}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+
+
+\newpage\null\thispagestyle{empty}\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}
+
+
+\noindent\includegraphics[width=\textwidth]{tfg/img/cabeceraSalud.pdf}\vspace{1cm}
+
+\noindent D. \nombreTutor, profesor del departamento de Ingeniería Electromecánica, área de Tecnología Electrónica.
+
+\noindent Expone:
+
+\noindent Que el alumno D. \nombre, con DNI \dni, ha realizado el Trabajo final de Grado en Ingeniería de la Salud titulado Gemelo Digital UCI. 
+
+\noindent Y que dicho trabajo ha sido realizado por el alumno bajo la dirección del que suscribe, en virtud de lo cual se autoriza su presentación y defensa.
+
+\begin{center} %\large
+En Burgos, {\large \today}
+\end{center}
+
+\vfill\vfill\vfill
+
+% Author and supervisor
+\begin{minipage}{0.45\textwidth}
+\begin{flushleft} %\large
+Vº. Bº. del Tutor:\\[2cm]
+D. \nombreTutor
+\end{flushleft}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+\begin{flushleft} %\large
+%Vº. Bº. del Tutor:\\[2cm]
+%D. \nombreTutorb
+\end{flushleft}
+\end{minipage}
+\hfill
+
+\vfill
+
+% para casos con solo un tutor comentar lo anterior
+% y descomentar lo siguiente
+%Vº. Bº. del Tutor:\\[2cm]
+%D. nombre tutor
+
+
+\newpage\null\thispagestyle{empty}\newpage
+
+
+
+
+\frontmatter
+
+% Abstract en castellano
+\renewcommand*\abstractname{Resumen}
+\begin{abstract}
+
+Las condiciones ambientales en entornos hospitalarios críticos, como las Unidades de Cuidados Intensivos (UCIs), tienen un impacto directo en la seguridad del paciente y en el correcto funcionamiento de los sistemas de climatización y tratamiento del aire. Parámetros como la temperatura y la humedad deben mantenerse dentro de unos rangos estrictos para garantizar un entorno óptimo tanto para los pacientes como para el personal sanitario.
+
+Actualmente, la monitorización de estas variables se realiza a través de sistemas complejos y no siempre accesibles, y su integración con plataformas visuales sigue siendo limitada. El concepto de gemelo digital, ampliamente extendido en otros sectores, presenta una oportunidad innovadora para representar virtualmente estos espacios, integrando en tiempo real los datos obtenidos desde sensores ambientales.
+
+En este trabajo se propone el diseño conceptual y técnico de un sistema de gemelo digital aplicado a una UCI hospitalaria, en el que se representa virtualmente el entorno arquitectónico y se integran datos ambientales. Como prueba de concepto, se ha incluido la UCI del Hospital Universitario de Burgos en Autodesk Revit, incorporando un sensor simulado de temperatura y humedad cuyos valores se almacenan y actualizan periódicamente en una base de datos MySQL. La integración de estos datos en el modelo se realiza mediante Dynamo, permitiendo su visualización dinámica en un entorno de modelado de información para la construcción (BIM) .
+
+Esta solución pretende ofrecer un ejemplo funcional que demuestra la viabilidad técnica de implementar gemelos digitales en el ámbito hospitalario, aportando una base para futuras investigaciones y desarrollos en el campo de la ingeniería de la salud.
+
+
+\end{abstract}
+
+\renewcommand*\abstractname{Descriptores}
+\begin{abstract}
+Gemelo digital, UCI, Revit, BIM, sensor, temperatura, humedad, Dynamo, MySQL, Python, MQTT.
+\end{abstract}
+
+\clearpage
+
+% Abstract en inglés
+\renewcommand*\abstractname{Abstract}
+\begin{abstract}
+Environmental conditions in critical hospital settings, such as Intensive Care Units (ICUs), have a direct impact on patient safety and the proper operation of air treatment and climate control systems. Parameters such as temperature and humidity must be maintained within strict ranges to ensure an optimal environment for both patients and healthcare staff.
+
+Currently, the monitoring of these variables relies on complex and not always accessible systems, and their integration with visual platforms remains limited. The concept of the digital twin, widely adopted in other sectors, presents an innovative opportunity to virtually represent these spaces by integrating real-time data from environmental sensors.
+
+This project proposes the conceptual and technical design of a digital twin system applied to a hospital ICU, where the architectural environment is virtually represented and environmental data are integrated. As a proof of concept, the ICU of the Hospital Universitario de Burgos has been modeled in Autodesk Revit, incorporating a simulated temperature and humidity sensor whose values are periodically stored and updated in a MySQL database. The integration of these data into the model is carried out through Dynamo, enabling dynamic visualization within a Building Information Modeling (BIM) environment.
+
+This solution aims to provide a functional example that demonstrates the technical feasibility of implementing digital twins in hospital settings, offering a foundation for future research and development in the field of healthcare engineering.
+\end{abstract}
+
+\renewcommand*\abstractname{Keywords}
+\begin{abstract}
+Digital twin, ICU, Revit, BIM, sensor, temperature, humidity, Dynamo, MySQL, Python, MQTT
+\end{abstract}
+
+\clearpage
+
+% Indices
+\tableofcontents
+
+\clearpage
+
+\listoffigures
+
+\clearpage
+
+\listoftables
+\clearpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\mainmatter
+\include{./tex/1_introduccion}
+\include{./tex/2_objetivos}
+\include{./tex/3_teoricos}
+\include{./tex/3.1_pruebas}
+\include{./tex/4_metodologia}
+\include{./tex/5_resultados}
+\include{./tex/6_conclusiones}
+\include{./tex/7_lineas_futuras}
+
+
+\bibliographystyle{apalike}
+\bibliography{bibliografia}
+
+\end{document}
